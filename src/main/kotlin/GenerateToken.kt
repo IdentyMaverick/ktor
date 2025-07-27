@@ -8,6 +8,6 @@ fun generateToken(username: String): String {
     return JWT.create()
         .withIssuer("ktor-backend")
         .withClaim("username", username)
-        .withExpiresAt(Date(System.currentTimeMillis() + 3600_000)) // 1 saat geçerli
+        .withExpiresAt(Date(System.currentTimeMillis() + 14400_000)) // 1 saat geçerli
         .sign(algorithm)
 }

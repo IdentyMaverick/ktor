@@ -9,7 +9,7 @@ import io.ktor.server.plugins.cors.routing.CORS
 import io.ktor.server.routing.*
 
 fun main() {
-    embeddedServer(Netty, port = 9090) {
+    embeddedServer(Netty, host = "0.0.0.0" , port = 9090) {
         install(ContentNegotiation) { json() }
         install(CORS) {
             anyHost()
