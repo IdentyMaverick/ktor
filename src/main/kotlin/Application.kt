@@ -10,15 +10,15 @@ import io.ktor.server.routing.*
 
 fun main() {
     embeddedServer(Netty, host = "0.0.0.0" , port = 9090) {
-        install(ContentNegotiation) { json() }
+        install(ContentNegotiation) { json() } // JSON veri formatı desteği ekler.
         install(CORS) {
-            anyHost()
-            allowHeader(HttpHeaders.ContentType)
-            allowMethod(HttpMethod.Post)
-            allowMethod(HttpMethod.Get)
+            anyHost() // Her yerden gelen isteklere izin ver.
+            allowHeader(HttpHeaders.ContentType) // Content-Type başlığına izin verir.
+            allowMethod(HttpMethod.Post) // POST ve GET isteklerine izin verir.
+            allowMethod(HttpMethod.Get) // POST ve GET isteklerine izin verir.
         }
         routing {
-            loginRoute()
+            loginRoute() // loginRoute() fonksiyonunu çağırarak /login endpoint’ini aktif eder.
         }
     }.start(wait = true)
 }
