@@ -28,6 +28,13 @@ dependencies {
     implementation("io.ktor:ktor-server-auth-jwt:${ktor_version}")
     implementation("com.auth0:java-jwt:${jwtVersion}")
     implementation("io.ktor:ktor-server-call-logging:${ktor_version}")
+    implementation("org.jetbrains.exposed:exposed-core:0.56.0")
+    implementation("org.jetbrains.exposed:exposed-dao:0.56.0")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.56.0")
+    implementation("org.jetbrains.exposed:exposed-java-time:0.56.0") // tarih-saat desteği
+    implementation("org.postgresql:postgresql:42.7.3") // PostgreSQL JDBC driver
+    implementation("at.favre.lib:bcrypt:0.9.0")
+    implementation("org.mindrot:jbcrypt:0.4")
 
 }
 

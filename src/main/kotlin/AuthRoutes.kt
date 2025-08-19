@@ -1,3 +1,4 @@
+import Database.UserRepository
 import com.example.models.LoginResponse
 import com.example.models.UserCredentials
 import io.ktor.server.application.*
@@ -11,21 +12,21 @@ import io.ktor.util.toMap
 
 fun Route.loginRoute() {
     post("/login") {
-        try {
+        try {/*
             val rawBody = call.receiveText()
-            println("Raw body: $rawBody")
             val loginRequest = kotlinx.serialization.json.Json.decodeFromString<UserCredentials>(rawBody)
-            println("LoginRequest is: ${loginRequest.username}")
-            val token = generateToken(username = loginRequest.username)
-            if (loginRequest.username=="admin" && loginRequest.password=="1234") {
+
+            val user = UserRepository.findUserByUsername(loginRequest.username)
+            if (user != null && UserRepository.verifyPassword(loginRequest.password, user.password)) {
+                val token = generateToken(user.userName)
                 call.respond(HttpStatusCode.OK, LoginResponse(true, token))
             } else {
-                call.respond(HttpStatusCode.OK, LoginResponse(false,"Kullanıcı adı veya şifre hatalı"))
+                call.respond(HttpStatusCode.Unauthorized, LoginResponse(false, "Kullanıcı adı veya şifre hatalı"))
             }
-
+*/
         } catch (e: Exception) {
             println("Hata: ${e.message}")
-            call.respond(HttpStatusCode.BadRequest, "Wrong")
+            call.respond(HttpStatusCode.BadRequest, "Geçersiz istek")
         }
     }
 
