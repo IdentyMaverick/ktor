@@ -1,4 +1,5 @@
 //import Database.DatabaseFactory
+import Database.DatabaseFactory
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.server.application.*
@@ -11,7 +12,7 @@ import io.ktor.server.routing.*
 
 fun main() {
     embeddedServer(Netty, host = "192.168.0.246" , port = 9090) {
-        //DatabaseFactory.init()
+        DatabaseFactory.init()
 
         install(ContentNegotiation) { json() } // JSON veri formatı desteği ekler.
         install(CORS) {
