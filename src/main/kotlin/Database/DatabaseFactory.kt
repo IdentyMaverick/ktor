@@ -1,4 +1,4 @@
-/*package Database
+package Database
 
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -16,4 +16,4 @@ object DatabaseFactory {
             SchemaUtils.create(Users)
         }
     }
-}*/
+}

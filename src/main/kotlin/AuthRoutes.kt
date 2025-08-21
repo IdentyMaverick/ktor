@@ -12,7 +12,7 @@ import io.ktor.util.toMap
 
 fun Route.loginRoute() {
     post("/login") {
-        try {/*
+        try {
             val rawBody = call.receiveText()
             val loginRequest = kotlinx.serialization.json.Json.decodeFromString<UserCredentials>(rawBody)
 
@@ -23,7 +23,7 @@ fun Route.loginRoute() {
             } else {
                 call.respond(HttpStatusCode.Unauthorized, LoginResponse(false, "Kullanıcı adı veya şifre hatalı"))
             }
-*/
+
         } catch (e: Exception) {
             println("Hata: ${e.message}")
             call.respond(HttpStatusCode.BadRequest, "Geçersiz istek")
